@@ -13,14 +13,14 @@ public class MenuController {
 
     public void findAllShortestOutput() {
         var coursesService = CoursesService.getInstance();
-//        var courses = CoursesService.findAllFromShortest();
-//        System.out.println(courses);
+        var courses = CoursesService.findAllFromShortest();
+        System.out.println(courses);
     }
 
     public void findByNameOutput() {
         var coursesService = CoursesService.getInstance();
-//        var coursesByName = CoursesService.findByName("JavaScript");
-//        System.out.println(coursesByName);
+        var coursesByName = CoursesService.findByName("JavaScript");
+        System.out.println(coursesByName);
     }
 
 }

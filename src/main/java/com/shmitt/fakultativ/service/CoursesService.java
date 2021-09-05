@@ -13,8 +13,6 @@ import java.util.Optional;
 
 public class CoursesService implements CoursesDao {
 
-    private static final CoursesService INSTANCE = new CoursesService();
-
     private static final String FIND_ALL_SQL = """
             SELECT id,
                 name,
@@ -75,7 +73,7 @@ public class CoursesService implements CoursesDao {
     }
 
     @Override
-    public Optional<Courses>findByName(String name) {
+    public Optional<Courses> findByName(String name) {
         name = "%JavaScript%";
         try (var connection = ConnectionManager.get();
              var prepareStatement = connection.prepareStatement(FIND_BY_NAME_SQL)) {
