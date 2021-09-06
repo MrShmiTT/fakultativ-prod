@@ -1,26 +1,28 @@
 package com.shmitt.fakultativ.menu;
 
-import com.shmitt.fakultativ.dao.CoursesDao;
+import com.shmitt.fakultativ.dao.CoursesRepositoryImpl;
 import com.shmitt.fakultativ.service.CoursesService;
 
 public class MenuController {
 
-    public static void findAllOutput() {
-        var coursesService = CoursesService.getInstance();
-        var courses = CoursesService.findAll();
+    private CoursesService coursesService;
+
+    public MenuController() {
+        coursesService = new CoursesService(new CoursesRepositoryImpl());
+    }
+
+    public void findAllOutput() {
+        var courses = coursesService.findAll();
         System.out.println(courses);
     }
 
     public void findAllShortestOutput() {
-        var coursesService = CoursesService.getInstance();
-        var courses = CoursesService.findAllFromShortest();
+        var courses = coursesService.findAllFromShortest();
         System.out.println(courses);
     }
 
     public void findByNameOutput() {
-        var coursesService = CoursesService.getInstance();
-        var coursesByName = CoursesService.findByName("JavaScript");
+        var coursesByName = coursesService.findByName("JavaScript");
         System.out.println(coursesByName);
     }
-
 }
