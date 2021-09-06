@@ -26,21 +26,11 @@ public class Menu {
                 key = this.scanner.nextInt();
                 MenuController menuController = new MenuController();
                 switch (key) {
-                    case 1:
-                        menuController.findAllOutput();
-                        break;
-                    case 2:
-                        menuController.findAllShortestOutput();
-                        break;
-                    case 3:
-                        menuController.findByNameOutput();
-                        break;
-                    case 0:
-                        System.out.println("Завершение программы...");
-                        break;
-                    default:
-                        System.out.println("Вы ввели неверное значение меню...\n");
-                        break;
+                    case 1 -> menuController.findAllOutput();
+                    case 2 -> menuController.findAllShortestOutput();
+                    case 3 -> menuController.findByNameOutput();
+                    case 0 -> System.out.println("Завершение программы...");
+                    default -> System.out.println("Вы ввели неверное значение меню...\n");
                 }
             } while (key != 0);
         }

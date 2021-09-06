@@ -19,5 +19,5 @@ public interface CoursesRepository {
     // read
     List<Courses> findAll();
     List<Courses> findAllFromShortest();
-    Optional<Courses>findByName(String name);
+    List<Courses>findByName(String name);
 }

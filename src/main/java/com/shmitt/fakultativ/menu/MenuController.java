@@ -13,16 +13,17 @@ public class MenuController {
 
     public void findAllOutput() {
         var courses = coursesService.findAll();
-        System.out.println(courses);
+        courses.forEach(System.out::println);
     }
 
     public void findAllShortestOutput() {
         var courses = coursesService.findAllFromShortest();
-        System.out.println(courses);
+        courses.forEach(System.out::println);
     }
 
     public void findByNameOutput() {
-        var coursesByName = coursesService.findByName("JavaScript");
-        System.out.println(coursesByName);
+        var coursesByName = coursesService.findByName("%JavaScript%");
+        coursesByName.forEach(System.out::println);
     }
+
 }

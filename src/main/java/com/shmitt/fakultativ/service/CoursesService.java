@@ -27,7 +27,7 @@ public class CoursesService {
         return coursesRepository.findAllFromShortest();
     }
 
-    public Optional<Courses> findByName(String name) {
+    public List<Courses> findByName(String name) {
         return coursesRepository.findByName(name);
     }
 }

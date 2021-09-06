@@ -45,18 +45,17 @@ public class CoursesRepositoryImpl implements CoursesRepository {
     }
 
     @Override
-    public Optional<Courses> findByName(String name) {
-        name = "%JavaScript%";
+    public List<Courses> findByName(String name) {
         try (var connection = ConnectionManager.get();
              var prepareStatement = connection.prepareStatement(FIND_BY_NAME_SQL)) {
             prepareStatement.setString(1, name);
             var resultSet = prepareStatement.executeQuery();
-            Courses courses = null;
-            if (resultSet.next()) {
-                courses = buildCourses(resultSet);
+            List<Courses> courses = new ArrayList<>();
+            while (resultSet.next()) {
+                courses.add(buildCourses(resultSet));
             }
 
-            return Optional.ofNullable(courses);
+            return courses;
         } catch (SQLException throwables) {
             throw new DaoException(throwables);
         }
